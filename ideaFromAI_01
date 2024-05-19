@@ -1,0 +1,9 @@
+import pdfminer.high_level
+def convert_pdf_to_xml(pdf_file, xml_file):
+with open(pdf_file, "rb") as f:
+  parser = pdfminer.high_level.PDFParser(f)
+  doc = pdfminer.high_level.PDFDocument(parser)
+  converter = pdfminer.high_level.XMLConverter(doc)
+with open(xml_file, "wb") as f:
+  converter.convert(f)
+  convert_pdf_to_xml("input.pdf", "output.xml")
